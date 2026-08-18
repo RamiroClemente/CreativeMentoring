@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Mentoring · Ramiro Clemente</title>
+  <meta name="description" content="An 8-week online mentorship with Ramiro Clemente to develop a clearer, more coherent and more personal body of work." />
+
+  <!--
+    LANDING PAGE · RAMIRO CLEMENTE
+    English version ready for GitHub Pages.
+    Payment link: https://buy.stripe.com/9B6cN75Wigb27eugvIbjW0W
+    Images:
+    images/padlet.jpg
+    images/ramiro-clemente.jpg
+  -->
+
+  <style>
+    :root {
+      --white: #ffffff;
+      --black: #111111;
+      --ink: #212121;
+      --grey-900: #2f2f2f;
+      --grey-700: #666666;
+      --grey-500: #9a9a9a;
+      --grey-200: #e8e8e8;
+      --grey-100: #f6f6f6;
+      --line: rgba(17, 17, 17, 0.12);
+      --line-strong: rgba(17, 17, 17, 0.24);
+      --max-width: 1100px;
+      --radius: 18px;
+      --shadow: 0 12px 34px rgba(17, 17, 17, 0.055);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--black);
+      font-family: "Futura PT", "Avenir Next", "Century Gothic", Arial, sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--grey-700);
+      font-size: 0.92rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--black);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0.62rem 1rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-weight: 600;
+      white-space: nowrap;
+      font-size: 0.92rem;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #333333;
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--line-strong);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--black);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--grey-700);
+    }
+
+    .program-title {
+      display: block;
+      margin: 0 0 18px;
+      color: var(--grey-700);
+      font-size: clamp(0.96rem, 1.6vw, 1.08rem);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0 0 16px;
+      color: var(--black);
+      font-family: "Futura PT", "Avenir Next", "Century Gothic", Arial, sans-serif;
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.032em;
+      text-wrap: balance;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    h1 {
+      font-size: clamp(2.25rem, 4.8vw, 4.1rem);
+      max-width: 760px;
+    }
+
+    h2 {
+      font-size: clamp(1.65rem, 3vw, 2.55rem);
+      max-width: 720px;
+    }
+
+    h3 {
+      font-size: clamp(1.12rem, 1.8vw, 1.42rem);
+      max-width: 620px;
+      letter-spacing: -0.022em;
+      font-weight: 500;
+    }
+
+    p {
+      margin: 0 0 14px;
+      max-width: 72ch;
+    }
+
+    .lead {
+      font-size: clamp(1.08rem, 1.7vw, 1.28rem);
+      line-height: 1.5;
+      color: var(--grey-900);
+      max-width: 64ch;
+    }
+
+    .section {
+      padding: 84px 0;
+    }
+
+    .section.grey {
+      background: var(--grey-100);
+    }
+
+    .section-head {
+      margin-bottom: 34px;
+      max-width: 760px;
+    }
+
+    .hero {
+      padding: 92px 0 88px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 54px;
+      align-items: end;
+    }
+
+    .hero-copy {
+      max-width: 660px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-number {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      margin-bottom: 16px;
+      border-radius: 50%;
+      background: var(--grey-100);
+      border: 1px solid var(--line);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--grey-700);
+    }
+
+    .quote {
+      padding-left: 18px;
+      border-left: 3px solid var(--black);
+      font-size: clamp(1.25rem, 2vw, 1.85rem);
+      line-height: 1.24;
+      letter-spacing: -0.026em;
+      font-weight: 600;
+      text-wrap: balance;
+      max-width: 540px;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 22px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .step strong {
+      color: var(--grey-700);
+      font-weight: 600;
+    }
+
+    .week-flow {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .week-box {
+      border-radius: 20px;
+      padding: 28px;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .week-box.light {
+      background: var(--grey-100);
+      color: var(--black);
+      border: 1px solid var(--line);
+    }
+
+    .week-box h3 {
+      color: inherit;
+    }
+
+    .simple-list {
+      margin: 8px 0 0;
+      padding-left: 1.1rem;
+      max-width: 76ch;
+    }
+
+    .simple-list li {
+      margin-bottom: 12px;
+    }
+
+    .simple-list li::marker {
+      color: var(--black);
+    }
+
+    .media-section {
+      margin-top: 30px;
+    }
+
+    .real-image {
+      width: 100%;
+      display: block;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      object-fit: cover;
+      background: var(--grey-100);
+    }
+
+    .real-image.padlet-img {
+      height: auto;
+      max-height: none;
+    }
+
+    .real-image.portrait-img {
+      max-width: 360px;
+      height: auto;
+    }
+
+    .image-placeholder {
+      min-height: 420px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(17,17,17,0.035), rgba(245,245,245,0.85)),
+        repeating-linear-gradient(45deg, rgba(17,17,17,0.045) 0, rgba(17,17,17,0.045) 1px, transparent 1px, transparent 18px);
+      display: flex;
+      align-items: end;
+      padding: 16px;
+      color: var(--grey-700);
+      font-size: 0.95rem;
+    }
+
+    .portrait-wrap {
+      max-width: 360px;
+      margin: 26px 0 32px;
+    }
+
+    .image-placeholder.portrait {
+      min-height: 360px;
+    }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .price-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 44px;
+      padding: 34px;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: var(--shadow);
+      align-items: start;
+    }
+
+    .price {
+      margin: 0 0 24px;
+      font-size: clamp(2.15rem, 4vw, 3.25rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      font-weight: 600;
+    }
+
+    .price-meta {
+      display: grid;
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .price-meta p {
+      margin: 0;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    details {
+      padding: 18px 20px;
+      margin-bottom: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--white);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    details p {
+      margin-top: 12px;
+      color: var(--grey-900);
+    }
+
+    .contact-box {
+      padding: clamp(28px, 5vw, 44px);
+      border-radius: 26px;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .contact-box h2,
+    .contact-box p,
+    .contact-box .eyebrow {
+      color: var(--white);
+    }
+
+    .contact-box .btn-primary {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .contact-box .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.35);
+    }
+
+
+
+    .contact-form {
+      margin-top: 28px;
+      display: grid;
+      gap: 14px;
+      max-width: 720px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 8px;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.84);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      padding: 0.9rem 1rem;
+      font: inherit;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(255,255,255,0.52);
+    }
+
+    .contact-form .btn-primary {
+      justify-self: center;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--grey-700);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 920px) {
+      body {
+        font-size: 17px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 70px 0 66px;
+      }
+
+      .hero-grid,
+      .grid-2,
+      .bio-grid,
+      .price-wrap {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .grid-3,
+      .calendar-grid,
+      .week-flow,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .section {
+        padding: 62px 0;
+      }
+
+      .image-placeholder,
+      .image-placeholder.portrait {
+        min-height: 300px;
+      }
+
+      .cta-row {
+        gap: 10px;
+      }
+
+      .btn {
+        width: auto;
+      }
+    }
+
+    @media (max-width: 460px) {
+      body {
+        font-size: 16px;
+      }
+
+      .container {
+        width: min(90%, var(--max-width));
+      }
+
+      h1 {
+        font-size: clamp(2.05rem, 11vw, 2.75rem);
+        line-height: 1.08;
+      }
+
+      h2 {
+        font-size: clamp(1.5rem, 8vw, 2rem);
+        line-height: 1.1;
+      }
+
+      h3 {
+        font-size: 1.14rem;
+      }
+
+      .lead {
+        font-size: 1.04rem;
+      }
+
+      .program-title {
+        font-size: 0.95rem;
+      }
+    }
+
+    .currency-box {
+      display: none;
+      margin-top: 14px;
+      display: inline-block;
+      padding: 12px 14px;
+      background: #f1f1f1;
+      border: 1px solid #dddddd;
+      border-radius: 14px;
+      color: #555555;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      max-width: 340px;
+    }
+
+    .currency-box strong {
+      color: #222222;
+      font-weight: 600;
+    }
+
+    .currency-note {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.78rem;
+      color: #777777;
+    }
+
+  
+
+    /* FINAL FIXED TOP MENU */
+    html {
+      scroll-padding-top: 96px;
+    }
+
+    body {
+      padding-top: 82px;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1200;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 82px;
+      display: grid;
+      grid-template-columns: minmax(230px, 1fr) auto minmax(150px, 1fr);
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      text-decoration: none;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-title {
+      color: var(--black);
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .brand-name {
+      color: var(--grey-700);
+      font-weight: 500;
+      font-size: 0.88rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      color: var(--grey-700);
+      font-size: 0.92rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--black);
+    }
+
+    .language-switch {
+      position: static;
+      justify-self: end;
+      z-index: auto;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      padding: 6px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    }
+
+    .language-switch a,
+    .language-switch span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      height: 34px;
+      padding: 0 11px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--black);
+    }
+
+    .language-switch .active {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .floating-discount {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 999;
+      max-width: 330px;
+      padding: 16px 18px;
+      background: var(--black);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 18px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.22);
+      color: var(--white);
+      font-size: 0.86rem;
+      line-height: 1.45;
+      backdrop-filter: blur(8px);
+    }
+
+    .floating-discount strong {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .floating-discount button {
+      position: absolute;
+      top: 8px;
+      right: 9px;
+      width: 22px;
+      height: 22px;
+      border: 0;
+      background: transparent;
+      color: rgba(255,255,255,0.74);
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .currency-box {
+      display: none;
+    }
+
+    @media (max-width: 920px) {
+      body {
+        padding-top: 76px;
+      }
+
+      .nav-inner {
+        min-height: 76px;
+        grid-template-columns: 1fr auto;
+        gap: 14px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .language-switch {
+        justify-self: end;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .brand-title {
+        font-size: 0.86rem;
+      }
+
+      .brand-name {
+        font-size: 0.78rem;
+      }
+
+      .language-switch a,
+      .language-switch span {
+        min-width: 34px;
+        height: 30px;
+        padding: 0 9px;
+        font-size: 0.76rem;
+      }
+
+      .floating-discount {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        max-width: none;
+        font-size: 0.82rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="floating-discount" role="note">
+    <button type="button" aria-label="Close discount notice" data-discount-close>×</button>
+    <strong>Former students</strong>
+    Students from previous courses have a 10% discount with the code received in the class download email.
+  </div>
+
+  <nav class="nav" aria-label="Main menu">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <span class="brand-title">Creative Mentoring</span>
+        <span class="brand-name">Ramiro Clemente</span>
+      </a>
+      <div class="nav-links">
+        <a href="#que-es">What it is</a>
+        <a href="#metodo">Method</a>
+        <a href="#padlet">Tools</a>
+        <a href="#sobre-mi">About me</a>
+        <a href="#detalles">Details</a>
+      </div>
+      <div class="language-switch" aria-label="Language selector">
+          <span class="active">EN</span>
+          <a href="es.html" aria-label="Ver en español">ES</a>
+        </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <h1>Direct your work with clarity.</h1>
+      </div>
+      <div class="hero-copy">
+        <p class="lead">A personalized online process for artists who want to develop their work in a coherent direction through mixed media techniques and visual narrative.</p>
+        <p>Through research and practice, we will incorporate new materials and techniques to expand and enrich your visual language, so that your decisions and objectives become visible in your work.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary"           href="https://buy.stripe.com/9B6cN75Wigb27eugvIbjW0W" target="_blank" rel="noopener noreferrer" data-payment-link="true">Enroll</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section grey" id="que-es">
+      <div class="container">
+        <div>
+          <p class="eyebrow">What it is</p>
+          <h2>A personal framework.</h2>
+          <p>The mentorship is designed for artists with an active practice who need direction, structure and individual guidance. It does not begin with generic exercises, but with your images, interests, doubts and decisions.</p>
+          <p>It is a guided reading of your process. It is not a course or a workshop. It is a personalized guide for your creative process.</p>
+          <p>Each week, you will receive a work proposal or a line of research adapted to your needs. The goal is to help you think about your work with more precision and build a more personal visual language.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="metodo">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2>8 weeks. A clear rhythm.</h2>
+          <p class="lead">The process combines initial orientation, practical work, written feedback and a final review based on your evolution.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <strong>Weeks 1–2</strong>
+            <div>
+              <h3>Orientation and direction</h3>
+              <p>We review your starting point, interests, technical and conceptual needs. We also organize the use of <a class="padlet-inline-link" href="#padlet">Padlet</a> as our shared working space.</p>
+            </div>
+          </article>
+
+          <article class="step">
+            <strong>Weeks 3–8</strong>
+            <div>
+              <h3>Work development</h3>
+              <p>We move into practical work: collage, mixed media, composition, visual rhythm, personal narrative, editing and the construction of a clearer visual voice.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="week-flow">
+          <article class="week-box">
+            <h3>Thursday · Submission</h3>
+            <p>You upload your weekly work to Padlet. The number of pieces or exercises may vary depending on the project and the stage of the process.</p>
+          </article>
+          <article class="week-box light">
+            <h3>Monday · Feedback</h3>
+            <p>You receive written feedback with technical and conceptual observations, adjustments, audiovisual resources and reference material.</p>
+          </article>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary"           href="https://buy.stripe.com/9B6cN75Wigb27eugvIbjW0W" target="_blank" rel="noopener noreferrer" data-payment-link="true">I want to enroll</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grey" id="transformacion">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Transformation</p>
+          <h2>From intention to language.</h2>
+          <p class="lead">The mentorship is not about helping you produce more, but about helping you better understand how to incorporate new resources and techniques into your own visual language.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="card-number">1</div>
+            <h3>More clarity</h3>
+            <p>You will identify patterns, strengths, blocks and possibilities that already exist in your work, but may not yet be organized.</p>
+          </article>
+          <article class="card">
+            <div class="card-number">2</div>
+            <h3>More coherence</h3>
+            <p>We will work on the relationship between technique, intention, composition and narrative so that your decisions carry more visual and conceptual weight.</p>
+          </article>
+          <article class="card">
+            <div class="card-number">3</div>
+            <h3>More identity</h3>
+            <p>The goal is to help you develop your own voice within the area, technique or language you want to investigate.</p>
+          </article>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary"           href="https://buy.stripe.com/9B6cN75Wigb27eugvIbjW0W" target="_blank" rel="noopener noreferrer" data-payment-link="true">Enroll</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="padlet">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Tools</p>
+          <h2>A space of your own.</h2>
+          <p class="lead">Padlet will be our private working space: your submissions, comments, questions, references and feedback will be organized there.</p>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <p>This space allows us to see the complete process, not just each isolated submission. Throughout the 8 weeks, the board will function as a visual record of your evolution.</p>
+            <ul class="simple-list">
+              <li>Private working space in Padlet.</li>
+              <li>One weekly submission.</li>
+              <li>Weekly written feedback.</li>
+              <li>Audiovisual resources and reference material.</li>
+              <li>Final written feedback in PDF.</li>
+            </ul>
+          </div>
+
+          <div class="media-section">
+            <img src="images/padlet.jpg" alt="Example of the working space in Padlet" class="real-image padlet-img">
+            <div class="cta-row">
+              <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=delW1Jtoq_w" target="_blank" rel="noopener">About Padlet</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grey" id="sobre-mi">
+      <div class="container">
+        <p class="eyebrow">About me</p>
+        <h2>Ramiro Clemente.</h2>
+
+        <div class="portrait-wrap">
+          <img src="images/ramiro-clemente.jpg" alt="Portrait of Ramiro Clemente" class="real-image portrait-img">
+        </div>
+
+        <p>Visual artist and educator based in Barcelona. I hold a Bachelor’s degree in Fine Arts and postgraduate studies in Visual Culture from the University of Barcelona.</p>
+        <p>More than 300 of my works, including drawings, collages and photography, are part of public and private collections. I have also developed illustrations for books, covers, magazines and newspapers.</p>
+        <p>I have received awards and recognition in drawing and photography competitions, and I have accompanied more than 2,000 students through online and in-person classes, mentorships and international educational projects.</p>
+        <p>My work in this mentorship is not to evaluate your work in terms of good or bad, but in terms of useful or not useful for achieving specific objectives. My role is to make a critical reading of your work, offer viable alternatives for its development based on your submissions, and propose resources, exercises and audiovisual materials that can help you make visual decisions.</p>
+      </div>
+    </section>
+
+    <section class="section" id="calendario">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Calendar</p>
+          <h2>Important dates.</h2>
+        </div>
+
+        <div class="calendar-grid">
+          <article class="card">
+            <h3>Start</h3>
+            <p>September 14, 2026. Individual Zoom call.</p>
+          </article>
+          <article class="card">
+            <h3>Submissions</h3>
+            <p>Thursday.</p>
+          </article>
+          <article class="card">
+            <h3>Feedback</h3>
+            <p>The following Monday.</p>
+          </article>
+        </div>
+
+        <p class="lead" style="margin-top:24px;">Although the mentorship extends over 8 weeks, we will keep some flexibility for unexpected events or occasional commitments.</p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary"           href="https://buy.stripe.com/9B6cN75Wigb27eugvIbjW0W" target="_blank" rel="noopener noreferrer" data-payment-link="true">Enroll</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grey" id="para-quien">
+      <div class="container grid-2">
+        <div>
+          <p class="eyebrow">Who it is for</p>
+          <h2>Artists with an active practice.</h2>
+        </div>
+        <div>
+          <p>This mentorship is designed for semi-professional painters, self-taught artists, illustrators, people working with collage or mixed media, and committed students who can dedicate several sessions per week to their work.</p>
+          <ul class="simple-list">
+            <li>If you have ideas, but need to organize them visually.</li>
+            <li>If you want to strengthen the relationship between technique and intention.</li>
+            <li>If you are looking for more attentive guidance than a general course can offer.</li>
+            <li>If you want to develop a more coherent and personal body of work.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="detalles">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Details</p>
+          <h2>Investment.</h2>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <p>The mentorship includes 8 weeks of work, an initial Zoom call, a private space in Padlet, one weekly submission, written feedback every week, support resources and final written feedback in PDF based on the evolution of the process.</p>
+          </div>
+
+          <div>
+            <p class="price">€650</p>
+            <p class="lead" style="margin-top:6px;">Single payment or 2 payments of €325.</p>
+            <div class="currency-box" id="currencyBox">
+              <span>Approximate price in your local currency:</span><br>
+              <strong id="localPrice">Detecting currency…</strong>
+              <span class="currency-note" id="currencyNote">Approximate conversion from €650. Final payment is processed in EUR.</span>
+            </div>
+            <div class="cta-row" style="justify-content:flex-start; margin-top:18px;">
+              <a class="btn btn-primary"           href="https://buy.stripe.com/9B6cN75Wigb27eugvIbjW0W" target="_blank" rel="noopener noreferrer" data-payment-link="true">Enroll</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grey" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Frequently asked questions</p>
+          <h2>Before starting.</h2>
+        </div>
+
+        <details>
+          <summary>What is the difference between a course and a mentorship?</summary>
+          <p>In a course, you follow a general structure designed for a group. In a mentorship, the work is built around your work, your needs, your questions and your evolution. The goal is not only to incorporate resources, but to apply them to your own direction.</p>
+        </details>
+
+        <details>
+          <summary>Do I need to have my own style?</summary>
+          <p>No. The mentorship is precisely a guided research and development tool for finding your own voice within the area or language you want to develop. The result will also depend on your commitment and your capacity for work.</p>
+        </details>
+
+        <details>
+          <summary>What kind of images can I upload?</summary>
+          <p>You can upload images of drawings, paintings, collages, sketchbook pages, mixed media pieces, works in progress or visual research. It is important that they are clear and have enough resolution to be evaluated properly.</p>
+        </details>
+
+        <details>
+          <summary>How much time should I dedicate each week?</summary>
+          <p>The mentorship is designed for people with an active practice. The greater your level of commitment, the more you will get from the process. My role is to offer attentive feedback on everything you submit and help you orient your work with continuity.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="container">
+        <div class="contact-box">
+          <p class="eyebrow">Contact</p>
+          <h2>Your work needs attention.</h2>
+          <p class="lead">It is not always about working more. Sometimes it is about looking more carefully, organizing the process and receiving more personal and attentive guidance.</p>
+          <p>I will be happy to follow your evolution inside the mentorship and help you develop your work with more clarity, structure and confidence.</p>
+
+          <form class="contact-form" action="mailto:ramiroclemente2000@gmail.com" method="post" enctype="text/plain">
+            <div class="form-row">
+              <label>
+                Name
+                <input type="text" name="Name" placeholder="Your name" required>
+              </label>
+              <label>
+                Email
+                <input type="email" name="Email" placeholder="your@email.com" required>
+              </label>
+            </div>
+            <label>
+              Message
+              <textarea name="Message" placeholder="Tell me briefly where your work is now and what you would like to develop." required></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Send inquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Ramiro Clemente · Barcelona</p>
+    </div>
+  </footer>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var discountClose = document.querySelector('[data-discount-close]');
+      var discountBox = document.querySelector('.floating-discount');
+      if (discountClose && discountBox) {
+        discountClose.addEventListener('click', function () {
+          discountBox.style.display = 'none';
+        });
+      }
+    });
+  </script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var paymentLinks = document.querySelectorAll('a[href="https://buy.stripe.com/9B6cN75Wigb27eugvIbjW0W"], a[data-payment-link="true"]');
+
+      paymentLinks.forEach(function (link) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+        link.setAttribute('data-payment-link', 'true');
+
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+          window.open('https://buy.stripe.com/9B6cN75Wigb27eugvIbjW0W', '_blank', 'noopener,noreferrer');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
