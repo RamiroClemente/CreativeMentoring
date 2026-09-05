@@ -956,12 +956,11 @@
 <div class="contact-box">
 <p class="eyebrow">Acceso</p>
 <h3 style="color:#fff;">Recibe la vista previa privada.</h3>
-<form action="https://formsubmit.co/ramiroclemente2000@gmail.com" class="contact-form" method="POST"><input name="subscription_type" type="hidden" value="Newsletter + Mentoría Creativa preview"/><input name="subscriber_language" type="hidden" value="Spanish"/><input name="subscriber_source" type="hidden" value="Mentoría Creativa landing"/>
+<form action="https://formsubmit.co/ramiroclemente2000@gmail.com" class="contact-form" data-forced-preview-form="true" data-preview-destination="preview-es.html" method="POST" target="newsletter_sink_es"><input name="_captcha" type="hidden" value="false"/><input name="subscription_type" type="hidden" value="Newsletter + Mentoría Creativa preview"/><input name="subscriber_language" type="hidden" value="Spanish"/><input name="subscriber_source" type="hidden" value="Mentoría Creativa landing"/>
 <input name="_subject" type="hidden" value="Mentoría Creativa · Nuevo suscriptor newsletter"/>
 <input name="_next" type="hidden" value="https://ramiroclemente.github.io/CreativeMentoring/preview-es.html"/>
 <input name="_url" type="hidden" value="https://ramiroclemente.github.io/CreativeMentoring/es.html"/>
 <input name="_template" type="hidden" value="table"/>
-
 <input name="_honey" style="display:none" type="text"/>
 <label>Email<input autocomplete="email" name="email" placeholder="tu@email.com" required="" type="email"/></label>
 <label style="display:flex;grid-template-columns:auto 1fr;align-items:flex-start;gap:10px;">
@@ -969,7 +968,45 @@
 <span>Quiero recibir la newsletter de Ramiro Clemente con la vista previa de Mentoría Creativa, novedades y beneficios. Puedo darme de baja en cualquier momento.</span>
 </label>
 <button class="btn btn-primary" type="submit">Suscribirme y ver la vista previa</button>
-</form>
+</form><iframe aria-hidden="true" data-newsletter-sink="true" id="newsletterSinkEs" name="newsletter_sink_es" style="display:none!important;width:0;height:0;border:0;position:absolute;left:-9999px;" title="Newsletter submission"></iframe><script data-forced-preview-redirect="true">
+(function () {
+  var form = document.querySelector('form[data-forced-preview-form="true"]');
+  var sink = document.getElementById('newsletterSinkEs');
+  if (!form || !sink) return;
+
+  var destination = 'preview-es.html';
+  var submissionStarted = false;
+  var redirected = false;
+  var fallbackTimer = null;
+
+  function openPreview() {
+    if (redirected) return;
+    redirected = true;
+    if (fallbackTimer) clearTimeout(fallbackTimer);
+    window.location.replace(destination);
+  }
+
+  form.addEventListener('submit', function () {
+    submissionStarted = true;
+
+    var stamp = form.querySelector('input[name="subscription_timestamp"]');
+    if (!stamp) {
+      stamp = document.createElement('input');
+      stamp.type = 'hidden';
+      stamp.name = 'subscription_timestamp';
+      form.appendChild(stamp);
+    }
+    stamp.value = new Date().toISOString();
+
+    fallbackTimer = window.setTimeout(openPreview, 10000);
+  });
+
+  sink.addEventListener('load', function () {
+    if (!submissionStarted) return;
+    window.setTimeout(openPreview, 120);
+  });
+})();
+</script>
 </div>
 </div>
 </section>
