@@ -842,6 +842,7 @@
 <a href="#preview">Vista previa</a>
 <a href="#padlet">Herramientas</a>
 <a href="#sobre-mi">Sobre mí</a>
+<a href="#schedule">Ritmo semanal</a>
 <a href="#detalles">Detalles</a>
 </div>
 <div aria-label="Selector de idioma" class="language-switch">
@@ -1016,43 +1017,143 @@
 <p>Mi trabajo en esta mentoría no es evaluar tu trabajo en términos de bueno o malo, sino en términos de útil o inútil para conseguir unos objetivos. Mi rol consiste en hacer una lectura crítica de tus trabajos, ofrecerte alternativas viables para el desarrollo de tu obra basadas en tus entregas y proponerte recursos, ejercicios y materiales audiovisuales que puedan ayudarte a tomar decisiones visuales.</p>
 </div>
 </section>
-<section class="section" id="calendario">
+<section class="section" id="schedule">
+<style>
+/* Weekly schedule — scoped to this section only */
+#schedule .weekly-schedule-shell{
+  border:1px solid #d9d9d9;
+  border-radius:20px;
+  overflow:hidden;
+  background:#fff;
+  margin-top:28px;
+}
+#schedule .weekly-schedule{
+  display:grid;
+  grid-template-columns:1.28fr repeat(5,.78fr) 1.28fr;
+  min-width:860px;
+}
+#schedule .weekly-day{
+  min-height:176px;
+  padding:18px 16px 16px;
+  border-right:1px solid #d9d9d9;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+#schedule .weekly-day:last-child{border-right:0}
+#schedule .weekly-day-key{background:#111;color:#fff}
+#schedule .weekly-day-submit{background:#f5f5f5}
+#schedule .weekly-dayname{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+  font-weight:800;
+  opacity:.72;
+}
+#schedule .weekly-number{
+  width:26px;
+  height:26px;
+  border:1px solid currentColor;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:12px;
+  font-weight:700;
+  opacity:.85;
+}
+#schedule .weekly-event{margin-top:auto}
+#schedule .weekly-event strong{
+  display:block;
+  font-size:16px;
+  line-height:1.18;
+  margin-bottom:5px;
+}
+#schedule .weekly-event span{
+  display:block;
+  font-size:12px;
+  line-height:1.4;
+  opacity:.72;
+}
+#schedule .weekly-work .weekly-event strong{font-size:14px}
+#schedule .weekly-mobile-hint{
+  display:none;
+  margin:18px 0 10px;
+  color:#6f6f6f;
+  font-size:12px;
+}
+#schedule .weekly-note{
+  margin-top:22px;
+  max-width:850px;
+  color:#6f6f6f;
+}
+@media(max-width:760px){
+  #schedule .weekly-schedule-shell{
+    overflow-x:auto;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+  }
+  #schedule .weekly-schedule{min-width:790px}
+  #schedule .weekly-day{
+    scroll-snap-align:start;
+    min-height:160px;
+    padding:15px 13px;
+  }
+  #schedule .weekly-mobile-hint{display:block}
+}
+</style>
 <div class="container">
 <div class="section-head">
 <p class="eyebrow">Calendario</p>
-<h2>Fechas importantes.</h2>
+<h2>Ritmo semanal.</h2>
+<p class="lead">Cada viernes recibes el feedback de la semana anterior y un nuevo assignment. De sábado a jueves trabajas en él, siendo el jueves la fecha límite de entrega.</p>
 </div>
-<div class="calendar-grid">
-<article class="card">
-<h3>Entregas</h3>
-<p>Jueves.</p>
+<p class="weekly-mobile-hint">Desliza horizontalmente para ver la semana completa →</p>
+<div aria-label="Calendario semanal de mentoría" class="weekly-schedule-shell">
+<div class="weekly-schedule">
+<article class="weekly-day weekly-day-key">
+<div class="weekly-dayname">Viernes</div>
+<div class="weekly-number">V</div>
+<div class="weekly-event">
+<strong>Feedback + Assignment</strong>
+<span>Revisión de la semana anterior + nueva dirección para la siguiente.</span>
+</div>
 </article>
-<article class="card">
-<h3>Feedback</h3>
-<p>Lunes siguiente.</p>
+<article class="weekly-day weekly-work">
+<div class="weekly-dayname">Sábado</div>
+<div class="weekly-number">S</div>
+<div class="weekly-event"><strong>Trabajo</strong><span>Desarrollo del assignment.</span></div>
+</article>
+<article class="weekly-day weekly-work">
+<div class="weekly-dayname">Domingo</div>
+<div class="weekly-number">D</div>
+<div class="weekly-event"><strong>Trabajo</strong><span>Desarrollo del assignment.</span></div>
+</article>
+<article class="weekly-day weekly-work">
+<div class="weekly-dayname">Lunes</div>
+<div class="weekly-number">L</div>
+<div class="weekly-event"><strong>Trabajo</strong><span>Desarrollo del assignment.</span></div>
+</article>
+<article class="weekly-day weekly-work">
+<div class="weekly-dayname">Martes</div>
+<div class="weekly-number">M</div>
+<div class="weekly-event"><strong>Trabajo</strong><span>Desarrollo del assignment.</span></div>
+</article>
+<article class="weekly-day weekly-work">
+<div class="weekly-dayname">Miércoles</div>
+<div class="weekly-number">X</div>
+<div class="weekly-event"><strong>Trabajo</strong><span>Desarrollo del assignment.</span></div>
+</article>
+<article class="weekly-day weekly-day-submit">
+<div class="weekly-dayname">Jueves</div>
+<div class="weekly-number">J</div>
+<div class="weekly-event">
+<strong>Trabajo + Entrega</strong>
+<span>Último día de trabajo. Entrega antes de finalizar el jueves.</span>
+</div>
 </article>
 </div>
-<p class="lead" style="margin-top:24px;">Aunque la mentoría se extiende durante 8 semanas (10 si eres antiguo alumno), mantendremos cierta flexibilidad ante imprevistos o compromisos puntuales.</p>
-<div class="cta-row">
-<a class="btn btn-primary" data-payment-link="true" href="https://buy.stripe.com/9B6cN75Wigb27eugvIbjW0W" rel="noopener noreferrer" target="_blank">Inscribirme</a>
 </div>
-</div>
-</section>
-<section class="section grey" id="para-quien">
-<div class="container grid-2">
-<div>
-<p class="eyebrow">A quién está dirigido</p>
-<h2>Artistas con práctica activa.</h2>
-</div>
-<div>
-<p>Esta mentoría está diseñada para pintores semiprofesionales, artistas autodidactas, ilustradores, personas que trabajan con collage o técnica mixta, y alumnos comprometidos que pueden dedicar varias sesiones semanales a su obra.</p>
-<ul class="simple-list">
-<li>Si tienes ideas, pero necesitas organizarlas visualmente.</li>
-<li>Si quieres fortalecer la relación entre técnica e intención.</li>
-<li>Si buscas un seguimiento más atento que el de un curso general.</li>
-<li>Si quieres desarrollar una obra más coherente y personal.</li>
-</ul>
-</div>
+<p class="weekly-note">Aunque la mentoría se extiende durante 8 semanas (10 si eres antiguo alumno), mantendremos cierta flexibilidad ante imprevistos o compromisos puntuales.</p>
 </div>
 </section>
 <section class="section" id="detalles">
@@ -1066,7 +1167,7 @@
 <p>La mentoría regular incluye 8 semanas de trabajo, una llamada inicial por Zoom, un espacio privado en Padlet, una entrega semanal, feedback escrito cada semana, recursos de apoyo y un feedback final escrito en PDF basado en la evolución del proceso. Si has participado en uno de mis workshops online, al final se añaden los 15 días extra descritos anteriormente.</p>
 </div>
 <div>
-<p class="price">€650</p>
+<p class="price">€650</p><p class="lead" style="margin-top:6px;">Haz clic en Inscribirme para consultar las opciones de pago a plazos disponibles.</p>
 <div class="cta-row" style="justify-content:flex-start; margin-top:18px;">
 <a class="btn btn-primary" data-payment-link="true" href="https://buy.stripe.com/9B6cN75Wigb27eugvIbjW0W" rel="noopener noreferrer" target="_blank">Inscribirme</a>
 </div>
@@ -1077,8 +1178,8 @@
 <section class="section grey" id="faq">
 <div class="container">
 <div class="section-head">
-<p class="eyebrow">Preguntas frecuentes</p>
-<h2>Antes de empezar.</h2>
+<p class="eyebrow">Antes de empezar</p>
+<h2>Preguntas frecuentes.</h2>
 </div>
 <details>
 <summary>¿Qué diferencia hay entre un curso y una mentoría?</summary>

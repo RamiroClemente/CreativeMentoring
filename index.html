@@ -860,6 +860,7 @@
 <a href="#preview">Preview</a>
 <a href="#padlet">Tools</a>
 <a href="#sobre-mi">About me</a>
+<a href="#schedule">Schedule</a>
 <a href="#detalles">Details</a>
 </div>
 <div aria-label="Language selector" class="language-switch">
@@ -1031,45 +1032,153 @@
 <p>My work in this mentorship is not to evaluate your work in terms of good or bad, but in terms of useful or not useful for achieving specific objectives. My role is to make a critical reading of your work, offer viable alternatives for its development based on your submissions, and propose resources, exercises and audiovisual materials that can help you make visual decisions.</p>
 </div>
 </section>
-<section class="section" id="calendario">
+
+<section class="section" id="schedule">
+
+<style>
+/* Weekly schedule — scoped to this section only */
+#schedule .weekly-schedule-shell{
+  border:1px solid #d9d9d9;
+  border-radius:20px;
+  overflow:hidden;
+  background:#fff;
+  margin-top:28px;
+}
+#schedule .weekly-schedule{
+  display:grid;
+  grid-template-columns:1.28fr repeat(5,.78fr) 1.28fr;
+  min-width:860px;
+}
+#schedule .weekly-day{
+  min-height:176px;
+  padding:18px 16px 16px;
+  border-right:1px solid #d9d9d9;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+#schedule .weekly-day:last-child{border-right:0}
+#schedule .weekly-day-key{background:#111;color:#fff}
+#schedule .weekly-day-submit{background:#f5f5f5}
+#schedule .weekly-dayname{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+  font-weight:800;
+  opacity:.72;
+}
+#schedule .weekly-number{
+  width:26px;
+  height:26px;
+  border:1px solid currentColor;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:12px;
+  font-weight:700;
+  opacity:.85;
+}
+#schedule .weekly-event{margin-top:auto}
+#schedule .weekly-event strong{
+  display:block;
+  font-size:16px;
+  line-height:1.18;
+  margin-bottom:5px;
+}
+#schedule .weekly-event span{
+  display:block;
+  font-size:12px;
+  line-height:1.4;
+  opacity:.72;
+}
+#schedule .weekly-work .weekly-event strong{font-size:14px}
+#schedule .weekly-mobile-hint{
+  display:none;
+  margin:18px 0 10px;
+  color:#6f6f6f;
+  font-size:12px;
+}
+#schedule .weekly-note{
+  margin-top:22px;
+  max-width:850px;
+  color:#6f6f6f;
+}
+@media(max-width:760px){
+  #schedule .weekly-schedule-shell{
+    overflow-x:auto;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+  }
+  #schedule .weekly-schedule{min-width:790px}
+  #schedule .weekly-day{
+    scroll-snap-align:start;
+    min-height:160px;
+    padding:15px 13px;
+  }
+  #schedule .weekly-mobile-hint{display:block}
+}
+</style>
+
 <div class="container">
-<div class="section-head">
-<p class="eyebrow">Calendar</p>
-<h2>Important dates.</h2>
-</div>
-<div class="calendar-grid">
-<article class="card">
-<h3>Submissions</h3>
-<p>Thursday.</p>
-</article>
-<article class="card">
-<h3>Feedback</h3>
-<p>The following Monday.</p>
-</article>
-</div>
-<p class="lead" style="margin-top:24px;">Although the mentorship extends over 8 weeks (10 if former student), we will keep some flexibility for unexpected events or occasional commitments.</p>
-<div class="cta-row">
-<a class="btn btn-primary" data-payment-link="true" href="https://buy.stripe.com/9B6cN75Wigb27eugvIbjW0W" rel="noopener noreferrer" target="_blank">Enroll</a>
-</div>
+  <div class="section-head">
+    <p class="eyebrow">Schedule</p>
+    <h2>Weekly rhythm.</h2>
+    <p class="lead">Every Friday you receive feedback on the previous week and a new assignment. From Saturday through Thursday you work on it, with Thursday as the submission deadline.</p>
+  </div>
+
+  <p class="weekly-mobile-hint">Swipe horizontally to see the full week →</p>
+
+  <div class="weekly-schedule-shell" aria-label="Weekly mentoring schedule">
+    <div class="weekly-schedule">
+      <article class="weekly-day weekly-day-key">
+        <div class="weekly-dayname">Friday</div>
+        <div class="weekly-number">F</div>
+        <div class="weekly-event">
+          <strong>Feedback + Assignment</strong>
+          <span>Previous week review + new direction for the week ahead.</span>
+        </div>
+      </article>
+      <article class="weekly-day weekly-work">
+        <div class="weekly-dayname">Saturday</div>
+        <div class="weekly-number">S</div>
+        <div class="weekly-event"><strong>Work</strong><span>Develop the assignment.</span></div>
+      </article>
+      <article class="weekly-day weekly-work">
+        <div class="weekly-dayname">Sunday</div>
+        <div class="weekly-number">S</div>
+        <div class="weekly-event"><strong>Work</strong><span>Develop the assignment.</span></div>
+      </article>
+      <article class="weekly-day weekly-work">
+        <div class="weekly-dayname">Monday</div>
+        <div class="weekly-number">M</div>
+        <div class="weekly-event"><strong>Work</strong><span>Develop the assignment.</span></div>
+      </article>
+      <article class="weekly-day weekly-work">
+        <div class="weekly-dayname">Tuesday</div>
+        <div class="weekly-number">T</div>
+        <div class="weekly-event"><strong>Work</strong><span>Develop the assignment.</span></div>
+      </article>
+      <article class="weekly-day weekly-work">
+        <div class="weekly-dayname">Wednesday</div>
+        <div class="weekly-number">W</div>
+        <div class="weekly-event"><strong>Work</strong><span>Develop the assignment.</span></div>
+      </article>
+      <article class="weekly-day weekly-day-submit">
+        <div class="weekly-dayname">Thursday</div>
+        <div class="weekly-number">T</div>
+        <div class="weekly-event">
+          <strong>Work + Submission</strong>
+          <span>Final working day. Submit before the end of Thursday.</span>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <p class="weekly-note">Although the mentorship extends over 8 weeks (10 if former student), we will keep some flexibility for unexpected events or occasional commitments.</p>
 </div>
 </section>
-<section class="section grey" id="para-quien">
-<div class="container grid-2">
-<div>
-<p class="eyebrow">Who it is for</p>
-<h2>Artists with an active practice.</h2>
-</div>
-<div>
-<p>This mentorship is designed for semi-professional painters, self-taught artists, illustrators, people working with collage or mixed media, and committed students who can dedicate several sessions per week to their work.</p>
-<ul class="simple-list">
-<li>If you have ideas, but need to organize them visually.</li>
-<li>If you want to strengthen the relationship between technique and intention.</li>
-<li>If you are looking for more attentive guidance than a general course can offer.</li>
-<li>If you want to develop a more coherent and personal body of work.</li>
-</ul>
-</div>
-</div>
-</section>
+
+
 <section class="section" id="detalles">
 <div class="container">
 <div class="section-head">
@@ -1082,7 +1191,7 @@
 </div>
 <div>
 <p class="price">€650</p>
-<p class="lead" style="margin-top:6px;">Single payment or 2 payments of €325.</p>
+<p class="lead" style="margin-top:6px;">Click Enroll to explore available installment payment options.</p>
 <div class="currency-box" id="currencyBox">
 <span>Approximate price in your local currency:</span><br/>
 <strong id="localPrice">Detecting currency…</strong>
@@ -1098,8 +1207,8 @@
 <section class="section grey" id="faq">
 <div class="container">
 <div class="section-head">
-<p class="eyebrow">Frequently asked questions</p>
-<h2>Before starting.</h2>
+<p class="eyebrow">Before starting</p>
+<h2>Frequently asked questions.</h2>
 </div>
 <details>
 <summary>What is the difference between a course and a mentorship?</summary>
