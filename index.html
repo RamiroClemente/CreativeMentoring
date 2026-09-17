@@ -841,9 +841,182 @@
     }
 
   </style>
+
+<style id="discountLeadStyle">
+  /* RC10 lead-magnet popup — isolated styles */
+  .discount-lead-overlay,
+  .discount-code-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    background: rgba(17,17,17,0.52);
+    backdrop-filter: blur(6px);
+  }
+
+  .discount-lead-overlay.is-visible,
+  .discount-code-overlay.is-visible {
+    display: flex;
+  }
+
+  .discount-lead-modal,
+  .discount-code-modal {
+    position: relative;
+    width: min(100%, 560px);
+    max-height: calc(100vh - 44px);
+    overflow-y: auto;
+    padding: clamp(26px, 5vw, 38px);
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    background: var(--white);
+    color: var(--black);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.22);
+  }
+
+  .discount-code-modal {
+    width: min(100%, 500px);
+    text-align: center;
+  }
+
+  .discount-lead-close,
+  .discount-code-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--black);
+    font: inherit;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .discount-lead-close:hover,
+  .discount-code-close:hover {
+    border-color: var(--black);
+  }
+
+  .discount-lead-modal .eyebrow,
+  .discount-code-modal .eyebrow {
+    margin-bottom: 12px;
+  }
+
+  .discount-lead-modal h2,
+  .discount-code-modal h2 {
+    margin-bottom: 14px;
+  }
+
+  .discount-lead-modal .lead {
+    margin-bottom: 22px;
+  }
+
+  .discount-lead-form {
+    display: grid;
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .discount-lead-form > label:first-of-type {
+    color: var(--black);
+  }
+
+  .discount-lead-form input[type="email"] {
+    width: 100%;
+    border: 1px solid var(--line-strong);
+    border-radius: 14px;
+    background: var(--white);
+    color: var(--black);
+    padding: 0.9rem 1rem;
+    font: inherit;
+    outline: none;
+  }
+
+  .discount-lead-form input[type="email"]:focus {
+    border-color: var(--black);
+  }
+
+  .discount-check {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: 10px;
+    color: var(--grey-900);
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .discount-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 3px 0 0;
+    padding: 0;
+    accent-color: var(--black);
+  }
+
+  .discount-privacy-note {
+    margin: 2px 0 0;
+    color: var(--grey-700);
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .discount-lead-form .btn {
+    justify-self: start;
+    margin-top: 4px;
+  }
+
+  .discount-code-value {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 170px;
+    margin: 18px 0 14px;
+    padding: 16px 24px;
+    border: 1px solid var(--black);
+    border-radius: 16px;
+    background: var(--grey-100);
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
+  .discount-code-modal p:last-of-type {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 600px) {
+    .discount-lead-overlay,
+    .discount-code-overlay {
+      padding: 14px;
+      align-items: flex-end;
+    }
+
+    .discount-lead-modal,
+    .discount-code-modal {
+      width: 100%;
+      max-height: calc(100vh - 28px);
+      padding: 26px 22px;
+      border-radius: 22px;
+    }
+
+    .discount-lead-form .btn {
+      width: 100%;
+    }
+  }
+</style>
+
 </head>
 <body>
-&lt;!-- CM-BUILD-2026-09-05-V3-CACHE-BUST --&gt;
 
 <div class="floating-discount" role="note">
 <button aria-label="Close former student notice" data-discount-close="" type="button">×</button>
@@ -1312,5 +1485,134 @@
       });
     });
   </script>
+
+<div aria-hidden="true" class="discount-lead-overlay" id="discountLeadPopup">
+  <section aria-labelledby="discountLeadTitle" aria-modal="true" class="discount-lead-modal" role="dialog">
+    <button aria-label="Close discount offer" class="discount-lead-close" id="discountLeadClose" type="button">×</button>
+    <p class="eyebrow">New here?</p>
+    <h2 id="discountLeadTitle">Receive a discount code.</h2>
+    <p class="lead">If you haven’t taken one of my classes before, leave your email and receive a discount code you can use for a limited time.</p>
+
+    <form action="https://formsubmit.co/ramiroclemente2000@gmail.com" class="discount-lead-form" id="discountLeadForm" method="POST" target="discountLeadSink">
+      <input name="_captcha" type="hidden" value="false"/>
+      <input name="_subject" type="hidden" value="Creative Mentoring · New RC10 lead"/>
+      <input name="_template" type="hidden" value="table"/>
+      <input name="lead_source" type="hidden" value="Creative Mentoring · RC10 popup"/>
+      <input name="discount_code" type="hidden" value="RC10"/>
+      <input name="consent_text" type="hidden" value="I’d like to receive emails from Ramiro Clemente about workshops, mentoring, new products, offers and discounts. I can unsubscribe at any time."/>
+      <input name="consent_timestamp" id="discountConsentTimestamp" type="hidden" value=""/>
+
+      <label>
+        Email
+        <input autocomplete="email" name="email" placeholder="your@email.com" required type="email"/>
+      </label>
+
+      <label class="discount-check">
+        <input name="new_student_confirmation" required type="checkbox" value="Confirmed"/>
+        <span>I confirm that I haven’t previously taken one of Ramiro Clemente’s classes or workshops.</span>
+      </label>
+
+      <label class="discount-check">
+        <input name="email_updates_consent" required type="checkbox" value="Accepted"/>
+        <span>I’d like to receive emails from Ramiro Clemente about workshops, mentoring, new products, offers and discounts. I can unsubscribe at any time.</span>
+      </label>
+
+      <p class="discount-privacy-note">Your email is used to provide this discount and, with the consent above, to send you future emails on those topics. You can withdraw your consent at any time.</p>
+
+      <button class="btn btn-primary" type="submit">Get my discount code</button>
+    </form>
+
+    <iframe aria-hidden="true" id="discountLeadSink" name="discountLeadSink" style="display:none!important;width:0;height:0;border:0;position:absolute;left:-9999px;" title="Discount form submission"></iframe>
+  </section>
+</div>
+
+<div aria-hidden="true" class="discount-code-overlay" id="discountCodePopup">
+  <section aria-labelledby="discountCodeTitle" aria-modal="true" class="discount-code-modal" role="dialog">
+    <button aria-label="Close discount code" class="discount-code-close" id="discountCodeClose" type="button">×</button>
+    <p class="eyebrow">Your discount</p>
+    <h2 id="discountCodeTitle">Your code is ready.</h2>
+    <div aria-label="Discount code RC10" class="discount-code-value">RC10</div>
+    <p>Use this code when you reach the payment page.</p>
+    <button class="btn btn-primary" id="discountCodeDone" type="button">Continue</button>
+  </section>
+</div>
+
+
+<script id="discountLeadScript">
+  document.addEventListener('DOMContentLoaded', function () {
+    var leadPopup = document.getElementById('discountLeadPopup');
+    var codePopup = document.getElementById('discountCodePopup');
+    var leadClose = document.getElementById('discountLeadClose');
+    var codeClose = document.getElementById('discountCodeClose');
+    var codeDone = document.getElementById('discountCodeDone');
+    var form = document.getElementById('discountLeadForm');
+    var sink = document.getElementById('discountLeadSink');
+    var consentTimestamp = document.getElementById('discountConsentTimestamp');
+    var submissionStarted = false;
+    var codeShown = false;
+    var fallbackTimer = null;
+
+    if (!leadPopup || !codePopup || !form || !sink) return;
+
+    function showLeadPopup() {
+      leadPopup.classList.add('is-visible');
+      leadPopup.setAttribute('aria-hidden', 'false');
+    }
+
+    function hideLeadPopup() {
+      leadPopup.classList.remove('is-visible');
+      leadPopup.setAttribute('aria-hidden', 'true');
+    }
+
+    function showCodePopup() {
+      if (codeShown) return;
+      codeShown = true;
+      if (fallbackTimer) window.clearTimeout(fallbackTimer);
+      hideLeadPopup();
+      codePopup.classList.add('is-visible');
+      codePopup.setAttribute('aria-hidden', 'false');
+    }
+
+    function hideCodePopup() {
+      codePopup.classList.remove('is-visible');
+      codePopup.setAttribute('aria-hidden', 'true');
+    }
+
+    window.setTimeout(showLeadPopup, 30000);
+
+    if (leadClose) leadClose.addEventListener('click', hideLeadPopup);
+    if (codeClose) codeClose.addEventListener('click', hideCodePopup);
+    if (codeDone) codeDone.addEventListener('click', hideCodePopup);
+
+    leadPopup.addEventListener('click', function (event) {
+      if (event.target === leadPopup) hideLeadPopup();
+    });
+
+    codePopup.addEventListener('click', function (event) {
+      if (event.target === codePopup) hideCodePopup();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        if (codePopup.classList.contains('is-visible')) hideCodePopup();
+        else if (leadPopup.classList.contains('is-visible')) hideLeadPopup();
+      }
+    });
+
+    form.addEventListener('submit', function () {
+      submissionStarted = true;
+      if (consentTimestamp) consentTimestamp.value = new Date().toISOString();
+
+      /* Fallback: the code is still revealed if the hidden response is delayed. */
+      fallbackTimer = window.setTimeout(showCodePopup, 2500);
+    });
+
+    sink.addEventListener('load', function () {
+      if (!submissionStarted) return;
+      window.setTimeout(showCodePopup, 120);
+    });
+  });
+</script>
+
 </body>
 </html>
