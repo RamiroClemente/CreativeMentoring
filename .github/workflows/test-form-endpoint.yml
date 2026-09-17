@@ -1,0 +1,26 @@
+name: Test CreativeMentoring form endpoint
+
+on:
+  push:
+    paths:
+      - '.github/workflows/test-form-endpoint.yml'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: POST test submission
+        run: |
+          set -euo pipefail
+          response=$(curl -sS -w '\n%{http_code}' \
+            -X POST 'https://vhtasjikqfldoilqdbhv.supabase.co/functions/v1/submit-form' \
+            -H 'Origin: https://ramiroclemente.github.io' \
+            -H 'Content-Type: application/json' \
+            --data '{"form_type":"newsletter","source_page":"https://ramiroclemente.github.io/CreativeMentoring/endpoint-test","language":"en","email":"creative-mentoring-endpoint-test@example.com","marketing_consent":true,"consent_version":"endpoint_test","consent_text":"Automated endpoint test only."}')
+          body=$(printf '%s' "$response" | sed '$d')
+          code=$(printf '%s' "$response" | tail -n1)
+          echo "HTTP $code"
+          echo "$body"
+          test "$code" = "200"
+          echo "$body" | grep -q '"ok":true'
