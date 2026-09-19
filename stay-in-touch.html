@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Stay in touch · Ramiro Clemente</title>
-<meta name="description" content="Join Ramiro Clemente's mailing list for new workshop dates, creative resources, mentoring opportunities and occasional studio news.">
+<meta name="description" content="Join Ramiro Clemente's mailing list for news, updates and offers.">
 <meta name="robots" content="index,follow">
 <style>
 :root{--ink:#111;--muted:#666;--line:#e8e8e8;--bg:#fff;--soft:#f7f7f7;--max:680px}
@@ -31,7 +31,7 @@ button:disabled{opacity:.55;cursor:default}
 <body>
 <main class="wrap">
   <h1>Keep the creative process going.</h1>
-  <p class="lead">Get new workshop dates, creative resources, mentoring opportunities and occasional news from my studio.</p>
+  <p class="lead">Stay in touch and receive news from my studio.</p>
 
   <section class="card" id="signupCard">
     <form id="newsletterForm" novalidate>
@@ -45,11 +45,11 @@ button:disabled{opacity:.55;cursor:default}
 
       <label class="consent">
         <input id="consent" name="newsletter_consent" type="checkbox" required>
-        <span>Yes, I'd like to receive new workshop dates, creative resources, mentoring opportunities and occasional news from Ramiro Clemente by email. I can unsubscribe at any time.</span>
+        <span>Yes, I'd like to receive news, updates and offers from Ramiro Clemente by email. I can unsubscribe at any time.</span>
       </label>
 
       <button type="submit">YES, KEEP ME UPDATED</button>
-      <p class="small">Your email will only be used for these updates. You can unsubscribe at any time. <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></p>
+      <p class="small"><a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></p>
       <p class="status" id="status" aria-live="polite"></p>
     </form>
 
@@ -65,8 +65,8 @@ button:disabled{opacity:.55;cursor:default}
   'use strict';
 
   const ENDPOINT = 'https://vhtasjikqfldoilqdbhv.supabase.co/functions/v1/submit-form';
-  const CONSENT_TEXT = "Yes, I'd like to receive new workshop dates, creative resources, mentoring opportunities and occasional news from Ramiro Clemente by email. I can unsubscribe at any time.";
-  const CONSENT_VERSION = 'workshop_email_optin_en_v1_2026-09-19';
+  const CONSENT_TEXT = "Yes, I'd like to receive news, updates and offers from Ramiro Clemente by email. I can unsubscribe at any time.";
+  const CONSENT_VERSION = 'workshop_email_optin_en_v2_2026-09-19';
 
   const form = document.getElementById('newsletterForm');
   const status = document.getElementById('status');
