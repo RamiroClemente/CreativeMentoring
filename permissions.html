@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Workshop permissions · Ramiro Clemente</title>
+<meta name="description" content="Optional permissions for Ramiro Clemente workshops.">
+<meta name="robots" content="noindex,follow">
+<style>
+:root{--ink:#111;--muted:#6b6b6b;--line:#e7e7e7;--bg:#fff;--soft:#f8f8f7;--max:680px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Futura PT","Avenir Next","Century Gothic",Arial,sans-serif;line-height:1.5;font-size:17px}
+.wrap{width:min(92%,var(--max));margin:0 auto;padding:64px 0 80px}
+h1{font-size:clamp(2.1rem,7vw,3.8rem);line-height:1.02;letter-spacing:-.04em;margin:0 0 16px}
+.lead{font-size:1.06rem;color:#333;margin:0 0 30px}
+.card{background:var(--soft);border:1px solid var(--line);border-radius:22px;padding:24px}
+.field-label{display:block;font-weight:600;margin-bottom:8px}
+input[type="email"]{width:100%;font:inherit;padding:14px 16px;border:1px solid #cfcfcf;border-radius:12px;background:#fff;color:#111}
+.permission{padding:19px 0;border-top:1px solid var(--line)}
+.permission:first-of-type{margin-top:20px}
+.permission-title{font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:#777;margin:0 0 8px}
+.choice{display:flex;gap:10px;align-items:flex-start;margin:0;font-size:.92rem;line-height:1.48;font-weight:400}
+.choice input{margin-top:4px;flex:0 0 auto}
+button{width:100%;border:0;border-radius:999px;background:#111;color:#fff;font:inherit;font-weight:700;padding:14px 18px;cursor:pointer;margin-top:4px}
+button:disabled{opacity:.55;cursor:default}
+.small{font-size:.78rem;color:var(--muted);margin:12px 0 0}
+.small a{color:inherit;text-decoration:underline}
+.status{margin:14px 0 0;font-size:.9rem;min-height:1.4em}
+.success{display:none;text-align:center;padding:10px 0}
+.success h2{font-size:1.6rem;margin:0 0 8px}
+.honey{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>Two optional permissions.</h1>
+  <p class="lead">To make the workshop comfortable, please review two optional permissions.</p>
+
+  <section class="card">
+    <form id="permissionsForm" novalidate>
+      <label class="field-label" for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="email" required>
+
+      <div class="honey" aria-hidden="true">
+        <label for="website">Website</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="permission">
+        <p class="permission-title">Stay in touch</p>
+        <label class="choice">
+          <input id="marketingConsent" type="checkbox">
+          <span>Yes, send me news, updates and offers by email.</span>
+        </label>
+      </div>
+
+      <div class="permission">
+        <p class="permission-title">Promotional clips</p>
+        <label class="choice">
+          <input id="mediaConsent" type="checkbox">
+          <span>Yes, you may use workshop clips or screenshots featuring me for promotion on your social media.</span>
+        </label>
+      </div>
+
+      <button type="submit">SAVE MY CHOICES</button>
+      <p class="small">You can withdraw either permission anytime. <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></p>
+      <p class="status" id="status" aria-live="polite"></p>
+    </form>
+
+    <div class="success" id="success">
+      <h2>All set.</h2>
+      <p>Thank you.</p>
+    </div>
+  </section>
+</main>
+
+<script>
+(() => {
+  'use strict';
+
+  const ENDPOINT = 'https://vhtasjikqfldoilqdbhv.supabase.co/functions/v1/submit-form';
+  const MARKETING_TEXT = 'Yes, send me news, updates and offers by email.';
+  const MARKETING_VERSION = 'workshop_permissions_marketing_en_v1_2026-09-19';
+  const MEDIA_TEXT = 'Yes, you may use workshop clips or screenshots featuring me for promotion on your social media.';
+  const MEDIA_VERSION = 'workshop_permissions_media_en_v1_2026-09-19';
+
+  const form = document.getElementById('permissionsForm');
+  const status = document.getElementById('status');
+  const success = document.getElementById('success');
+  const button = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const emailInput = document.getElementById('email');
+    const email = emailInput.value.trim();
+    const marketingConsent = document.getElementById('marketingConsent').checked;
+    const mediaConsent = document.getElementById('mediaConsent').checked;
+    const website = document.getElementById('website').value.trim();
+
+    status.textContent = '';
+
+    if (!email || !emailInput.checkValidity()) {
+      status.textContent = 'Please enter a valid email address.';
+      return;
+    }
+
+    if (!marketingConsent && !mediaConsent) {
+      status.textContent = 'No problem — nothing to save.';
+      return;
+    }
+
+    const originalText = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Saving…';
+
+    try {
+      const response = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        mode:'cors',
+        credentials:'omit',
+        cache:'no-store',
+        body: JSON.stringify({
+          form_type:'workshop_permissions',
+          source_page:window.location.href.split('#')[0],
+          language:'en',
+          email:email.toLowerCase(),
+          marketing_consent:marketingConsent,
+          consent_version:marketingConsent ? MARKETING_VERSION : null,
+          consent_text:marketingConsent ? MARKETING_TEXT : null,
+          media_consent:mediaConsent,
+          media_consent_version:mediaConsent ? MEDIA_VERSION : null,
+          media_consent_text:mediaConsent ? MEDIA_TEXT : null,
+          website
+        })
+      });
+
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || !data.ok) throw new Error(data.error || 'submit_failed');
+
+      form.style.display = 'none';
+      success.style.display = 'block';
+    } catch (error) {
+      console.error(error);
+      status.textContent = 'Something went wrong. Please try again in a few minutes.';
+    } finally {
+      button.disabled = false;
+      button.textContent = originalText;
+    }
+  });
+})();
+</script>
+</body>
+</html>
