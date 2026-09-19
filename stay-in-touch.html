@@ -51,15 +51,6 @@ button:disabled{opacity:.55;cursor:default}
         <span>Yes, I'd like to receive news, updates and offers from Ramiro Clemente by email. I can unsubscribe at any time.</span>
       </label>
 
-      <div class="optional">
-        <p class="optional-title">Optional workshop permission</p>
-        <p class="small" style="margin:0 0 8px;">I may use short clips or screenshots from this workshop for promotional purposes on my social media.</p>
-        <label class="consent">
-          <input id="mediaConsent" name="media_consent" type="checkbox">
-          <span>Yes, I agree.</span>
-        </label>
-      </div>
-
       <button type="submit">YES, KEEP ME UPDATED</button>
       <p class="small"><a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></p>
       <p class="status" id="status" aria-live="polite"></p>
@@ -79,9 +70,6 @@ button:disabled{opacity:.55;cursor:default}
   const ENDPOINT = 'https://vhtasjikqfldoilqdbhv.supabase.co/functions/v1/submit-form';
   const CONSENT_TEXT = "Yes, I'd like to receive news, updates and offers from Ramiro Clemente by email. I can unsubscribe at any time.";
   const CONSENT_VERSION = 'workshop_email_optin_en_v2_2026-09-19';
-  const MEDIA_CONSENT_TEXT = 'I may use short clips or screenshots from this workshop for promotional purposes on my social media. Yes, I agree.';
-  const MEDIA_CONSENT_VERSION = 'workshop_media_social_en_v1_2026-09-19';
-
   const form = document.getElementById('newsletterForm');
   const status = document.getElementById('status');
   const success = document.getElementById('success');
@@ -92,7 +80,6 @@ button:disabled{opacity:.55;cursor:default}
 
     const email = document.getElementById('email').value.trim();
     const consent = document.getElementById('consent').checked;
-    const mediaConsent = document.getElementById('mediaConsent').checked;
     const website = document.getElementById('website').value.trim();
 
     status.textContent = '';
@@ -126,9 +113,6 @@ button:disabled{opacity:.55;cursor:default}
           marketing_consent: true,
           consent_version: CONSENT_VERSION,
           consent_text: CONSENT_TEXT,
-          media_consent: mediaConsent,
-          media_consent_version: mediaConsent ? MEDIA_CONSENT_VERSION : null,
-          media_consent_text: mediaConsent ? MEDIA_CONSENT_TEXT : null,
           website
         })
       });
