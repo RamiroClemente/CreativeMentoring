@@ -57,10 +57,9 @@ button:disabled{opacity:.55;cursor:default}
 
       <div class="permission">
         <p class="permission-title">Clips &amp; screenshots</p>
-        <p class="permission-copy"><em>I may use clips and screenshots from my workshops to help others understand the experience.</em></p>
         <label class="choice">
           <input id="mediaConsent" type="checkbox">
-          <span>Yes, I agree that clips or screenshots in which I appear may be used on your social media.</span>
+          <span>Yes, I agree that clips or screenshots in which I appear may be used on your social media to help others understand the workshop experience.</span>
         </label>
       </div>
 
@@ -83,8 +82,8 @@ button:disabled{opacity:.55;cursor:default}
   const ENDPOINT = 'https://vhtasjikqfldoilqdbhv.supabase.co/functions/v1/submit-form';
   const MARKETING_TEXT = 'Yes, send me news, updates and offers by email.';
   const MARKETING_VERSION = 'workshop_permissions_marketing_en_v1_2026-09-19';
-  const MEDIA_TEXT = 'I may use clips and screenshots from my workshops to help others understand the experience. Yes, I agree that clips or screenshots in which I appear may be used on your social media.';
-  const MEDIA_VERSION = 'workshop_permissions_media_en_v2_2026-09-19';
+  const MEDIA_TEXT = 'Yes, I agree that clips or screenshots in which I appear may be used on your social media to help others understand the workshop experience.';
+  const MEDIA_VERSION = 'workshop_permissions_media_en_v3_2026-09-19';
 
   const form = document.getElementById('permissionsForm');
   const status = document.getElementById('status');
